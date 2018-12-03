@@ -3,7 +3,7 @@ import sys
 import unittest
 import pandas as pd
 
-parent_dir = os.path.normpath(os.path.join(__file__,'../../..'))
+parent_dir = os.path.normpath(os.path.join(os.getcwd(), '../..'))
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
     
@@ -12,7 +12,7 @@ import xuebadb.dfanalysis.stats as stats
 class TestStats(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        print("Instantiating test-class object")
+        print("Instantiating TestStats object")
         
     def setUp(self):
         self.df = pd.DataFrame([[10, 20], [30, 40]], index = ['row1', 'row2'])
@@ -40,4 +40,4 @@ class TestStats(unittest.TestCase):
         
     @classmethod
     def tearDownClass(cls):
-        print("Destroying test-class object")
+        print("Destroying TestStats object")

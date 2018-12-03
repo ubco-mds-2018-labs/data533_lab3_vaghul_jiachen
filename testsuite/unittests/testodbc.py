@@ -4,7 +4,7 @@ import unittest
 import pyodbc
 import pandas as pd
 
-parent_dir = os.path.normpath(os.path.join(__file__,'../../..'))
+parent_dir = os.path.normpath(os.path.join(os.getcwd(), '../..'))
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
     
@@ -13,7 +13,7 @@ from xuebadb.dbgeneric.odbc_interface import ODBCInterface
 class TestODBC(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        print("Instantiating test-class object")
+        print("Instantiating TestODBC object")
         
     def setUp(self):
         self.odbc_intfc = ODBCInterface('sql04.ok.ubc.ca', 'rlawrenc', 'test', 'workson')
@@ -41,5 +41,5 @@ class TestODBC(unittest.TestCase):
         
     @classmethod
     def tearDownClass(cls):
-        print("Destroying test-class object")
+        print("Destroying TestODBC object")
         
