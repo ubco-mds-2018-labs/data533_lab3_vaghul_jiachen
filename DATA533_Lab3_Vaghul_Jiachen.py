@@ -1,6 +1,7 @@
 import xuebadb.dbgeneric.db_interface as dbintfc
 import xuebadb.dfanalysis.cleanup as cleanup
 import xuebadb.dfanalysis.stats as stats
+from testsuite import testsuite
 
 # Testing out connectivity to a MySQL DB server using the package
 res_con = dbintfc.DBInterface('mysql', 'cosc304.ok.ubc.ca', 'vbalaji', '10796456', 'WorksOn')
@@ -15,3 +16,6 @@ res_df = res_con.querySelect("select * from emp")
 cleanup.show_nulls(res_df)
 print(res_df)
 stats.colBoxPlot(res_df)
+
+# Running the xuebadb package test-suite
+testsuite.testSuite()
