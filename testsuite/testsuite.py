@@ -7,7 +7,6 @@ except ImportError:
     from .unittests.teststats import TestStats
     from .unittests.testodbc import TestODBC
 
-
 def testSuite():
     print("\n\n###################################################")
     print("EXECUTING XUEBADB TEST-SUITE")
