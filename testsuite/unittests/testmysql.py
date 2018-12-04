@@ -46,7 +46,7 @@ class TestMySQL(unittest.TestCase):  #creating a test class
         # Testing if the query result is correct
         correct = pd.DataFrame(pd.Series( ['D1', 'Management', 'E8'], index=[0,1,2]),columns=[0])
         correct = correct.T
-        res = self.mysql_intfc.select("select * from dept where dno='D1'")
+        res_df = self.mysql_intfc.select("select * from dept where dno='D1'")
         self.assertTrue(correct.equals(res_df))
         
     def tearDown(self):

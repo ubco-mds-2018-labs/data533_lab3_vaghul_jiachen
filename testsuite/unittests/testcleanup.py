@@ -1,7 +1,4 @@
 
-# coding: utf-8
-
-# In[20]:
 
 
 import os
@@ -53,6 +50,6 @@ class TestCleanup(unittest.TestCase):  #creating a test class
     def tearDownClass(cls):
         print("Destroying TestCleanup object")
         
-unittest.main(argv=[''], verbosity=2, exit=False)
+#unittest.main(argv=[''], verbosity=2, exit=False)
     
 
