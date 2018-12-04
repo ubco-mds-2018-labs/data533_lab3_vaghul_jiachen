@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import missingno
-import matplotlib.pyplot as plt
 
 def show_nulls(input_df):
     if(not isinstance(input_df, pd.DataFrame)):
@@ -9,7 +8,7 @@ def show_nulls(input_df):
         return None
     
     input_df.replace("None", np.nan, inplace = True)
+    
     # Matrix that displays data sparsity to see missing/Null values    
     missingno.matrix(input_df,inline=True)
-    #plt.show()
     return missingno.matrix(input_df,inline=False)

@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[57]:
-
-
 import os
 import sys
 import unittest
@@ -21,17 +15,19 @@ class TestMySQL(unittest.TestCase):  #creating a test class
     @classmethod
     def setUpClass(cls):
         print("Instantiating TestMySQL object")
+        
     def setUp(self):
         self.mysql_intfc = MySQLInterface('cosc304.ok.ubc.ca', 'jwei', '11154549', 'WorksOn')
-                           #creates a MySQLInterface object
+        #creates a MySQLInterface object
+        
     def test_MySQL(self):  # test case
         # Testing if able to connect to the MySQL server
-        self.assertTrue( self.mysql_intfc._MySQLInterface__connect() ) 
-                                        #call the private method __connect() and it returns TRUE or FALSE
+        self.assertTrue( self.mysql_intfc._MySQLInterface__connect()) 
+        #call the private method __connect() and it returns TRUE or FALSE
         
         #Testing if SELECT is functioning
         self.assertEqual(int(self.mysql_intfc.select("select 1234").values), 1234)
-                    #in SQL query, "SELECT anything" returns anything
+        #in SQL query, "SELECT anything" returns anything
         
         # Testing if the SELECT query returns a dataframe
         self.assertIsInstance(self.mysql_intfc.select("select * from emp"), pd.DataFrame)
@@ -47,9 +43,8 @@ class TestMySQL(unittest.TestCase):  #creating a test class
         
     def tearDown(self):
         print("Finished testing the test case.")
+        
     @classmethod
     def tearDownClass(cls):
         print("Destroying TestMySQL object")
         
-# unittest.main(argv=[''], verbosity=2, exit=False)
-
