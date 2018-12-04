@@ -15,16 +15,12 @@ if parent_dir not in sys.path:
 import xuebadb.dfanalysis.cleanup as cu
 
 class TestCleanup(unittest.TestCase):  #creating a test class
-    tmcount=0  #count numbers of method tested
     @classmethod
     def setUpClass(cls):
         print("Instantiating TestCleanup object")
     def setUp(self):
         self.testdf=pd.DataFrame([ {1:'a',2:'b',3:None}, {1:'d',2:None,3:'f'} ])  
-               #a test dataframe containing None values  
-        TestCleanup.tmcount+=1
-        print("Testing the No.",TestCleanup.tmcount,"test case")
-    
+               #a test dataframe containing None values      
     def test_Cleanup(self):  # test case
         #test if show_nulls() can handle an integer input
         self.assertEqual(cu.show_nulls(123),None)
@@ -45,7 +41,7 @@ class TestCleanup(unittest.TestCase):  #creating a test class
         self.assertIsInstance(obj, matplotlib.axes.Axes)
         
     def tearDown(self):
-        print("Finished testing the No.",TestCleanup.tmcount,"test case")
+        print("Finished testing the test case")
     @classmethod
     def tearDownClass(cls):
         print("Destroying TestCleanup object")

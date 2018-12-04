@@ -18,16 +18,12 @@ if parent_dir not in sys.path:
 from xuebadb.dbgeneric.mysql_interface import MySQLInterface
 
 class TestMySQL(unittest.TestCase):  #creating a test class
-    tmcount=0  #count numbers of method tested
     @classmethod
     def setUpClass(cls):
         print("Instantiating TestMySQL object")
     def setUp(self):
         self.mysql_intfc = MySQLInterface('cosc304.ok.ubc.ca', 'jwei', '11154549', 'WorksOn')
                            #creates a MySQLInterface object
-        TestMySQL.tmcount+=1
-        print("Testing the No.",TestMySQL.tmcount,"test case")
-
     def test_MySQL(self):  # test case
         # Testing if able to connect to the MySQL server
         self.assertTrue( self.mysql_intfc._MySQLInterface__connect() ) 
@@ -50,7 +46,7 @@ class TestMySQL(unittest.TestCase):  #creating a test class
         self.assertTrue(correct.equals(res_df))
         
     def tearDown(self):
-        print("Finished testing the No.",TestMySQL.tmcount,"test case")
+        print("Finished testing the test case.")
     @classmethod
     def tearDownClass(cls):
         print("Destroying TestMySQL object")
